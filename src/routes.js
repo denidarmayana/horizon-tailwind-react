@@ -21,19 +21,30 @@ import {
 
 const routes = [
   {
-    name: "Main Dashboard",
+    name: "Dashboard",
     layout: "/admin",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
   },
   {
-    name: "NFT Marketplace",
+    name: "Marketplace",
     layout: "/admin",
-    path: "nft-marketplace",
     icon: <MdOutlineShoppingCart className="h-6 w-6" />,
-    component: <NFTMarketplace />,
-    secondary: true,
+    children: [
+      {
+        name: "NFT Marketplace",
+        layout: "/admin",
+        path: "nft-marketplace",
+        component: <NFTMarketplace />,
+      },
+      {
+        name: "Shopping Cart",
+        layout: "/admin",
+        path: "shopping-cart",
+        component: <NFTMarketplace />,
+      },
+    ],
   },
   {
     name: "Data Tables",
@@ -64,4 +75,5 @@ const routes = [
     component: <RTLDefault />,
   },
 ];
+
 export default routes;

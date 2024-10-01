@@ -1,5 +1,5 @@
 import React from "react";
-import CardMenu from "components/card/CardMenu";
+
 import Card from "components/card";
 import Progress from "components/progress";
 import { MdCancel, MdCheckCircle, MdOutlineError } from "react-icons/md";
@@ -20,10 +20,10 @@ export default function ComplexTable(props) {
   const [sorting, setSorting] = React.useState([]);
   let defaultData = tableData;
   const columns = [
-    columnHelper.accessor("name", {
-      id: "name",
+    columnHelper.accessor("username", {
+      id: "username",
       header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">NAME</p>
+        <p className="text-sm font-bold text-gray-600 dark:text-white">Username</p>
       ),
       cell: (info) => (
         <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -31,11 +31,11 @@ export default function ComplexTable(props) {
         </p>
       ),
     }),
-    columnHelper.accessor("status", {
-      id: "status",
+    columnHelper.accessor("nama", {
+      id: "nama",
       header: () => (
         <p className="text-sm font-bold text-gray-600 dark:text-white">
-          STATUS
+          Nama
         </p>
       ),
       cell: (info) => (
@@ -53,10 +53,10 @@ export default function ComplexTable(props) {
         </div>
       ),
     }),
-    columnHelper.accessor("date", {
-      id: "date",
+    columnHelper.accessor("email", {
+      id: "email",
       header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">DATE</p>
+        <p className="text-sm font-bold text-gray-600 dark:text-white">Email</p>
       ),
       cell: (info) => (
         <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -64,11 +64,11 @@ export default function ComplexTable(props) {
         </p>
       ),
     }),
-    columnHelper.accessor("progress", {
-      id: "progress",
+    columnHelper.accessor("paket", {
+      id: "paket",
       header: () => (
         <p className="text-sm font-bold text-gray-600 dark:text-white">
-          PROGRESS
+          Paket
         </p>
       ),
       cell: (info) => (
@@ -91,15 +91,14 @@ export default function ComplexTable(props) {
     debugTable: true,
   });
   return (
-    <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
+    <Card extra={"w-full h-full px-6 pb-2 sm:overflow-x-auto"}>
       <div className="relative flex items-center justify-between pt-4">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Complex Table
+          Members Hari ini
         </div>
-        <CardMenu />
       </div>
 
-      <div className="mt-8 overflow-x-scroll xl:overflow-x-hidden">
+      <div className="mt-2 overflow-x-scroll xl:overflow-x-hidden">
         <table className="w-full">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (

@@ -46,6 +46,17 @@ export default function Admin(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
+      // Jika ada anak rute, render semua anaknya
+    if (prop.children) {
+      return prop.children.map((childProp, childKey) => (
+        <Route
+          path={`/${childProp.path}`}
+          element={childProp.component}
+          key={`${key}-${childKey}`}
+        />
+      ));
+    }
+    
       if (prop.layout === "/admin") {
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />

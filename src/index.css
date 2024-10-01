@@ -27,3 +27,128 @@ input.defaultCheckbox::before {
 input:checked.defaultCheckbox::before { 
 	opacity: 1;
 }
+
+.tree ul {
+	padding: 0; 
+   	margin: 0;
+	width: 100%;
+	position: relative;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+  }
+  
+  .tree li {
+	float: left;
+	top: 20px;
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 5px 5px;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+  }
+  
+  /* Connectors for parents and children */
+  .tree li::before,
+  .tree li::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 50%;
+	border-top: 2px solid #adb5bd; /* Default line color for light mode */
+	width: 50%;
+	height: 20px;
+  }
+  
+  /* Dark Mode: Change lines to white */
+  .dark .tree li::before,
+  .dark .tree li::after {
+	border-top: 2px solid #ffffff;
+  }
+  
+  .tree li::after {
+	right: auto;
+	left: 50%;
+	border-left: 2px solid #adb5bd;
+  }
+  
+  /* Dark Mode: Change vertical lines to white */
+  .dark .tree li::after {
+	border-left: 2px solid #ffffff;
+  }
+  
+  /* Remove connectors for only children */
+  .tree li:only-child::after,
+  .tree li:only-child::before {
+	display: none;
+  }
+  
+  .tree li:only-child {
+	padding-top: 0;
+  }
+  
+  /* First and Last child adjustments */
+  .tree li:first-child::before,
+  .tree li:last-child::after {
+	border: 0 none;
+  }
+  
+  /* Adding back the vertical connector to the last nodes */
+  .tree li:last-child::before {
+	border-right: 2px solid #adb5bd;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+  }
+  
+  /* Dark Mode: Change the last node connector to white */
+  .dark .tree li:last-child::before {
+	border-right: 2px solid #ffffff;
+	border-radius: 0 5px 0 0;
+  }
+  
+  .tree li:first-child::after {
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+  }
+  
+  /* Downward connectors from parents */
+  .tree ul ul::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-left: 2px solid #adb5bd;
+	width: 0;
+	height: 20px;
+  }
+  
+  /* Dark Mode: Change downward connector to white */
+  .dark .tree ul ul::before {
+	border-left: 2px solid #ffffff;
+  }
+  
+  /* Link styles */
+  .tree li a {
+	text-decoration: none;
+	color: #666;
+	font-size: 11px;
+	display: inline-block;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+  }
+  
+  /* Dark Mode: Link text to white */
+  .dark .tree li a {
+	color: #ffffff;
+  }
+  /* Responsive font size */
+@media (max-width: 600px) {
+    .tree li a {
+        min-width: 68px;
+    }
+}

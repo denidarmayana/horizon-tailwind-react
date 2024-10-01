@@ -6,7 +6,7 @@ import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/tables";
 import RTLDefault from "views/rtl/default";
-
+import Register from "views/pengembangan/register"
 // Auth Imports
 import SignIn from "views/auth/SignIn";
 
@@ -39,10 +39,10 @@ const routes = [
         component: <NFTMarketplace />,
       },
       {
-        name: "Shopping Cart",
+        name: "Register",
         layout: "/admin",
-        path: "shopping-cart",
-        component: <NFTMarketplace />,
+        path: "register",
+        component: <Register />,
       },
     ],
   },

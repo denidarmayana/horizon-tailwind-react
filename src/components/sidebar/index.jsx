@@ -35,9 +35,7 @@ const Sidebar = ({ open, onClose }) => {
       </ul>
 
       {/* Free Horizon Card */}
-      <div className="flex justify-center">
-        <SidebarCard />
-      </div>
+      
     </div>
   );
 };
